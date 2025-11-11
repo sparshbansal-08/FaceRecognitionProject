@@ -1,5 +1,6 @@
 import cv2
 import pickle
+import numpy as np
 video=cv2.VideoCapture(0)
 facedetect=cv2.CascadeClassifier('data/haarcascade_frontalface_default.xml')
 faces_data=[]
@@ -23,3 +24,5 @@ while True:
         break
 video.release()
 cv2.destroyAllWindows()
+faces_data=np.asarray(faces_data)
+faces_data=faces_data.reshape(100, -1)
